@@ -1,0 +1,2156 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Esri.ArcGISRuntime.Toolkit</name>
+    </assembly>
+    <members>
+        <member name="T:Esri.ArcGISRuntime.Toolkit.Internal.BindingExtensions">
+            <summary>
+            Provides utility extension methods related to data-bindings
+            </summary>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.Internal.BindingExtensions.Clone(System.Windows.Data.Binding,System.Object)">
+            <summary>
+            Creates a copy of the specified binding
+            </summary>
+            <param name="source">The binding to copy</param>
+            <param name="newConverterParameter">The object to use as a converter parameter</param>
+            <returns>The copy of the binding</returns>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.Internal.BindingExtensions.UpdateStringFormat(System.Windows.FrameworkElement,System.Windows.DependencyProperty,System.String,System.String@)">
+            <summary>
+            Applies the specified format string to the binding of the specified property on the specified element.  Also initializes a fallback string format from the
+            original string format if one is not already referenced in the corresponding parameter.
+            </summary>
+            <param name="bindingTarget">The element for which to update the property</param>
+            <param name="targetProperty">The dependency property to update</param>
+            <param name="stringFormat">The new format string</param>
+            <param name="fallbackFormat">The fallback format string.  Used if the new format string is null or empty.</param>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.Internal.BindingExtensions.RefreshBinding(System.Windows.FrameworkElement,System.Windows.DependencyProperty)">
+            <summary>
+            Forces the specified property to update on the specified element
+            </summary>
+            <param name="element">The element to update the property for</param>
+            <param name="property">The property to update</param>
+        </member>
+        <member name="T:Esri.ArcGISRuntime.Toolkit.Internal.ElementExtensions">
+            <summary>
+            Helper class for providing common cross-platform names for UI component manipulation
+            </summary>
+        </member>
+        <member name="T:Esri.ArcGISRuntime.Toolkit.Internal.GraphicsExtensions">
+            <summary>
+            Helper class for providing common cross-platform names for members having to do with graphics or drawing-related objects
+            </summary>
+        </member>
+        <member name="T:Esri.ArcGISRuntime.Toolkit.Internal.HtmlToPlainTextConverter">
+            <summary>
+            *FOR INTERNAL USE* Strips out html-code to return plain text.
+            </summary>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.Internal.HtmlToPlainTextConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <inheritdoc cref="M:System.Windows.Data.IValueConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)" />
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.Internal.HtmlToPlainTextConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <inheritdoc cref="M:System.Windows.Data.IValueConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)" />
+        </member>
+        <member name="T:Esri.ArcGISRuntime.Toolkit.Internal.StringExtensions">
+            <summary>
+            Helper class for providing common cross-platform string manipulations.
+            </summary>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.Internal.StringExtensions.ToPlainText(System.String)">
+            <summary>
+            Strips-out html code from text.
+            </summary>
+            <param name="htmlText">Text that may contain html code.</param>
+            <returns>Plain text after html code is removed.</returns>
+        </member>
+        <member name="T:Esri.ArcGISRuntime.Toolkit.Internal.ThrottleAwaiter">
+            <summary>
+            The throttle awaiter is useful for limiting the number of times a block of code executes in cases where that code is repeatly
+            called many times within a certain interval, but you only want the code executed once.  Awaiting the ThrottleDelay method will
+            delay code continuation until a set interval has elapsed without any other calls to ThrottleDelay on the same instance.
+            </summary>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.Internal.ThrottleAwaiter.#ctor(System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Esri.ArcGISRuntime.Toolkit.Internal.ThrottleAwaiter"/> class.
+            </summary>
+            <param name="milliseconds">Milliseconds to throttle.</param>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.Internal.ThrottleAwaiter.ThrottleDelay">
+            <summary>
+            Invokes the throttled delay
+            </summary>
+            <returns>Task</returns>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.Internal.ThrottleAwaiter.Cancel">
+            <summary>
+            Cancels an in-progress delay interval
+            </summary>
+        </member>
+        <member name="T:Esri.ArcGISRuntime.Toolkit.Internal.TimeExtensions">
+            <summary>
+            Provides utility extension methods related to time
+            </summary>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.Internal.TimeExtensions.AddMonths(System.DateTimeOffset,System.Double)">
+            <summary>
+            Adds the specified number of months to the DateTimeOffset object
+            </summary>
+            <param name="startDateTime">The date to add months to</param>
+            <param name="months">The number of months to add</param>
+            <returns>A DateTimeOffset object with the specified number of months added</returns>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.Internal.TimeExtensions.AddTimeValue(System.DateTimeOffset,Esri.ArcGISRuntime.TimeValue)">
+            <summary>
+            Adds the specified TimeValue to the DateTimeOffset object
+            </summary>
+            <param name="startTime">The date to add the time value to</param>
+            <param name="timeStep">The amount of time to add</param>
+            <returns>A DateTimeOffset object with the specified time added</returns>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.Internal.TimeExtensions.Divide(Esri.ArcGISRuntime.TimeExtent,System.Int32)">
+            <summary>
+            Divides the specified TimeExtent by the specified number
+            </summary>
+            <param name="timeExtent">The extent to divide</param>
+            <param name="count">The amount to divide the extent by</param>
+            <returns>A TimeValue instance which, will fit evenly into the input TimeExtent the specified number of times</returns>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.Internal.TimeExtensions.IsGreaterThan(Esri.ArcGISRuntime.TimeValue,Esri.ArcGISRuntime.TimeValue)">
+            <summary>
+            Determines whether a specified TimeValue is greater than another TimeValue instance
+            </summary>
+            <returns>A boolean indicating whether the first TimeValue is greater than the second</returns>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.Internal.TimeExtensions.ToMilliseconds(Esri.ArcGISRuntime.TimeValue)">
+            <summary>
+            Converts a TimeValue instance to milliseconds
+            </summary>
+            <param name="timeValue">The TimeValue to convert</param>
+            <returns>The TimeValue's equivalent number of milliseconds</returns>
+            <remarks>If the time value's unit is months or greater, the return value cannot be determined exactly indepedent of
+            a known start or end date.  In these cases, a duration of one month is assumed to be (365 / 12) days, and the final
+            value is determined based on that assumption.</remarks>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.Internal.TimeExtensions.Union(Esri.ArcGISRuntime.TimeExtent,Esri.ArcGISRuntime.TimeExtent)">
+            <summary>
+            Merges two TimeExtents together to create one TimeExtent that will encompass both input extents
+            </summary>
+            <param name="timeExtent">The first extent to union</param>
+            <param name="otherTimeExtent">The second extent to union</param>
+            <returns>A TimeExtent instance with a start time that is the minimum of the that of the two input extents
+            and an end time that is the maximum of that of the two input extents</returns>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.Internal.TimeExtensions.IsTimeInstant(Esri.ArcGISRuntime.TimeExtent)">
+            <summary>
+            Determines whether the input extent represents instantaneous time
+            </summary>
+            <param name="timeExtent">The time extent to interrogate</param>
+            <returns>A boolean indicating whether the extent represents an instant in time</returns>
+        </member>
+        <member name="T:Esri.ArcGISRuntime.Toolkit.Internal.VisibilityConverter">
+            <summary>
+            *FOR INTERNAL USE* Returns visible status for positive boolean, non-null text and opposite state for visibility value.
+            </summary>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.Internal.VisibilityConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <inheritdoc cref="M:System.Windows.Data.IValueConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)" />
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.Internal.VisibilityConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <inheritdoc cref="M:System.Windows.Data.IValueConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)" />
+        </member>
+        <member name="T:Esri.ArcGISRuntime.Toolkit.Internal.WeakEventListener`3">
+            <summary>
+            Implements a weak event listener that allows the owner to be garbage
+            collected if its only remaining link is an event handler.
+            </summary>
+            <typeparam name="TInstance">Type of instance listening for the event.</typeparam>
+            <typeparam name="TSource">Type of source for the event.</typeparam>
+            <typeparam name="TEventArgs">Type of event arguments for the event.</typeparam>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Toolkit.Internal.WeakEventListener`3._weakInstance">
+            <summary>
+            WeakReference to the instance listening for the event.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.Internal.WeakEventListener`3.OnEventAction">
+            <summary>
+            Gets or sets the method to call when the event fires.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.Internal.WeakEventListener`3.OnDetachAction">
+            <summary>
+            Gets or sets the method to call when detaching from the event.
+            </summary>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.Internal.WeakEventListener`3.#ctor(`0)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Esri.ArcGISRuntime.Toolkit.Internal.WeakEventListener`3"/> class.
+            </summary>
+            <param name="instance">Instance subscribing to the event.</param>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.Internal.WeakEventListener`3.OnEvent(`1,`2)">
+            <summary>
+            Handler for the subscribed event calls OnEventAction to handle it.
+            </summary>
+            <param name="source">Event source.</param>
+            <param name="eventArgs">Event arguments.</param>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.Internal.WeakEventListener`3.Detach">
+            <summary>
+            Detaches from the subscribed event.
+            </summary>
+        </member>
+        <member name="T:Esri.ArcGISRuntime.Toolkit.Internal.WeakEventListener`1">
+             <summary>
+             Implements a weak event listener that allows the owner to be garbage
+             collected if its only remaining link is an event handler.
+            
+             USAGE:
+            
+             EventReceiver - the class that is listening for the event
+             eventSource - the object that is firing a 'Changed' event.
+             _eventListener - an instance of WeakEventListener.
+            
+             SUBSCRIBE TO EVENT:
+            
+             _eventListener = new WeakEventListener&lt;EventReceiver&gt;(this)
+                 {
+                     OnEventAction = l => /* do something to handle the event */,
+                     OnDetachAction = wel => newValue.Changed -= wel.OnEvent
+                 };
+             eventSource.Changed += _eventListener.OnEvent;
+            
+             UNSUBSCRIBE FROM EVENT:
+            
+             _eventListener.Detach();
+             _eventListener = null;
+            
+             </summary>
+             <typeparam name="TInstance">Type of instance listening for the event.</typeparam>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Toolkit.Internal.WeakEventListener`1._weakInstance">
+            <summary>
+            WeakReference to the instance listening for the event.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.Internal.WeakEventListener`1.OnEventAction">
+            <summary>
+            Gets or sets the method to call when the event fires.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.Internal.WeakEventListener`1.OnDetachAction">
+            <summary>
+            Gets or sets the method to call when detaching from the event.
+            </summary>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.Internal.WeakEventListener`1.#ctor(`0)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Esri.ArcGISRuntime.Toolkit.Internal.WeakEventListener`1"/> class.
+            </summary>
+            <param name="instance">Instance subscribing to the event.</param>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.Internal.WeakEventListener`1.OnEvent">
+            <summary>
+            Handler for the subscribed event calls OnEventAction to handle it.
+            </summary>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.Internal.WeakEventListener`1.Detach">
+            <summary>
+            Detaches from the subscribed event.
+            </summary>
+        </member>
+        <member name="T:Esri.ArcGISRuntime.Toolkit.LocalizedStrings.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.LocalizedStrings.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.LocalizedStrings.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.LocalizedStrings.Resources.FeetAbbreviation">
+            <summary>
+              Looks up a localized string similar to ft.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.LocalizedStrings.Resources.KilometerAbbreviation">
+            <summary>
+              Looks up a localized string similar to km.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.LocalizedStrings.Resources.MeterAbbreviation">
+            <summary>
+              Looks up a localized string similar to m.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.LocalizedStrings.Resources.MilesAbbreviation">
+            <summary>
+              Looks up a localized string similar to mi.
+            </summary>
+        </member>
+        <member name="T:Esri.ArcGISRuntime.Toolkit.UI.AttributeValueChangedEventArgs">
+            <summary>
+            Field attribute change events used by the <see cref="T:Esri.ArcGISRuntime.Toolkit.UI.Controls.FeatureDataField"/>.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.AttributeValueChangedEventArgs.OldValue">
+            <summary>
+            Gets the old attribute field value.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.AttributeValueChangedEventArgs.NewValue">
+            <summary>
+            Gets the new attribute field value.
+            </summary>
+        </member>
+        <member name="T:Esri.ArcGISRuntime.Toolkit.UI.Controls.Compass">
+            <summary>
+            The Compass Control showing the heading on the map when the rotation is not North up / 0.
+            </summary>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.Compass.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Esri.ArcGISRuntime.Toolkit.UI.Controls.Compass"/> class.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.Compass.Heading">
+            <summary>
+            Gets or sets the Heading for the compass.
+            </summary>
+            <remarks>
+            This property is read-only if the <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.Compass.GeoView"/> property is assigned.
+            </remarks>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.Compass.AutoHide">
+            <summary>
+            Gets or sets a value indicating whether to auto-hide the control when Heading is 0
+            </summary>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.Compass.OnApplyTemplate">
+            <inheritdoc/>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.Compass.OnMouseLeftButtonDown(System.Windows.Input.MouseButtonEventArgs)">
+            <inheritdoc />
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.Compass.HeadingImpl">
+            <summary>
+            Gets or sets the platform-specific implementation of the <see cref="F:Esri.ArcGISRuntime.Toolkit.UI.Controls.Compass.HeadingProperty"/> property
+            </summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Toolkit.UI.Controls.Compass.HeadingProperty">
+            <summary>
+            Identifies the <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.Compass.Heading"/> dependency property.
+            </summary>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.Compass.OnHeadingPropertyChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            The property changed event that is raised when the value of Heading property changes.
+            </summary>
+            <param name="d">Compass</param>
+            <param name="e">Contains information related to the change to the Heading property.</param>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.Compass.AutoHideImpl">
+            <summary>
+            Gets or sets a value indicating whether to auto-hide the control when Heading is 0
+            </summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Toolkit.UI.Controls.Compass.AutoHideProperty">
+            <summary>
+            Identifies the <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.Compass.AutoHide"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.Compass.GeoView">
+            <summary>
+            Gets or sets the GeoView property that can be attached to a Compass control to accurately set the heading, instead of
+            setting the <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.Compass.Heading"/> property directly.
+            </summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Toolkit.UI.Controls.Compass.GeoViewProperty">
+            <summary>
+            Identifies the <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.Compass.GeoView"/> Dependency Property
+            </summary>
+        </member>
+        <member name="T:Esri.ArcGISRuntime.Toolkit.UI.Controls.DataItem">
+            <summary>
+            Base class for <see cref="T:Esri.ArcGISRuntime.Toolkit.UI.Controls.ReadOnlyDataItem"/>, <see cref="T:Esri.ArcGISRuntime.Toolkit.UI.Controls.InputDataItem"/> and <see cref="T:Esri.ArcGISRuntime.Toolkit.UI.Controls.SelectorDataItem"/>.
+            </summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Toolkit.UI.Controls.DataItem._callback">
+            <summary>
+            Callback for notifying <see cref="T:Esri.ArcGISRuntime.Toolkit.UI.Controls.FeatureDataField"/> that <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.DataItem.Value"/> property has changed.
+            </summary>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.DataItem.#ctor(System.Action{System.Object})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Esri.ArcGISRuntime.Toolkit.UI.Controls.DataItem" /> class.
+            </summary>
+            <param name="callback">callback raised when <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.DataItem.Value"/> property changes.</param>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.DataItem.#ctor(System.Action{System.Object},System.Object)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Esri.ArcGISRuntime.Toolkit.UI.Controls.DataItem" /> class.
+            </summary>
+            <param name="callback">callback raised when <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.DataItem.Value"/> property changes.</param>
+            <param name="value">default value.</param>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.DataItem.OnValueChanged">
+            <summary>
+            Raises <see cref="F:Esri.ArcGISRuntime.Toolkit.UI.Controls.DataItem._callback"/> with the current <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.DataItem.Value"/> property.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.DataItem.Value">
+            <summary>
+            Gets or sets the value used to bind ContentTemplate.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.DataItem.ErrorMessage">
+            <summary>
+            Gets or sets the error message.
+            </summary>
+        </member>
+        <member name="T:Esri.ArcGISRuntime.Toolkit.UI.Controls.FeatureDataField">
+            <summary>
+            The FeatureDataField control is used to display or edit a single field attribute of an <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.FeatureDataField.Feature"/>.
+            </summary>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.FeatureDataField.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Esri.ArcGISRuntime.Toolkit.UI.Controls.FeatureDataField"/> class.
+            </summary>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.FeatureDataField.OnApplyTemplate">
+            <inheritdoc/>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.FeatureDataField.Feature">
+            <summary>
+            Gets or sets the <see cref="T:Esri.ArcGISRuntime.Data.Feature">Feature</see> that owns the field attribute the schema and values of fields.
+            </summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Toolkit.UI.Controls.FeatureDataField.FeatureProperty">
+            <summary>
+            Identifies the <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.FeatureDataField.Feature"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.FeatureDataField.FieldName">
+            <summary>
+            Gets or sets the name of the attribute field that will be used to generate control.
+            </summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Toolkit.UI.Controls.FeatureDataField.FieldNameProperty">
+            <summary>
+            Identifies the <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.FeatureDataField.FieldName"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.FeatureDataField.IsReadOnly">
+            <summary>
+            Gets or sets a value indicating whether generated control will be read-only.
+            </summary>
+            <remarks>
+            Any field that is editable as defined by the feature schema can be made read-only.
+            Any field that is read-only as defined by the feature schema cannot be made editable.
+            </remarks>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Toolkit.UI.Controls.FeatureDataField.IsReadOnlyProperty">
+            <summary>
+            Identifies the <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.FeatureDataField.IsReadOnly"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.FeatureDataField.BindingValue">
+            <summary>
+            Gets or sets the attribute value for field.
+            </summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Toolkit.UI.Controls.FeatureDataField.BindingValueProperty">
+            <summary>
+            Identifies the <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.FeatureDataField.BindingValue"/> dependency property.
+            </summary>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.FeatureDataField.OnValueChanging(System.Object,System.Object)">
+            <summary>
+            Called when an attribute value is about to change
+            </summary>
+            <remarks>
+            To trigger a validation exception, throw an exception in this method.
+            </remarks>
+            <param name="oldvValue">The old attribute value</param>
+            <param name="newValue">The new updated attribute value</param>
+            <seealso cref="E:Esri.ArcGISRuntime.Toolkit.UI.Controls.FeatureDataField.ValueChanging"/>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.FeatureDataField.OnValueChanged(System.Object,System.Object)">
+            <summary>
+            Called when an attribute value has changed
+            </summary>
+            <param name="oldvValue">The old attribute value</param>
+            <param name="newValue">The new updated attribute value</param>
+            <seealso cref="E:Esri.ArcGISRuntime.Toolkit.UI.Controls.FeatureDataField.ValueChanged"/>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.FeatureDataField.ValidationException">
+            <summary>
+            Gets the validation exception.
+            </summary>
+            <remarks>
+            Default validation is handled based on field schema.
+            Custom validation may be added by subscribing to ValueChanging event.
+            </remarks>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Toolkit.UI.Controls.FeatureDataField.ValidationExceptionProperty">
+            <summary>
+            Identifies the <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.FeatureDataField.BindingValue"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.FeatureDataField.SelectorTemplate">
+            <summary>
+            Gets or sets the template used when field is bound to a coded-value domain.
+            </summary>
+            <seealso cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.FeatureDataField.ReadOnlyTemplate"/>
+            <seealso cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.FeatureDataField.InputTemplate"/>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Toolkit.UI.Controls.FeatureDataField.SelectorTemplateProperty">
+            <summary>
+            Identifies the <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.FeatureDataField.SelectorTemplate"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.FeatureDataField.InputTemplate">
+            <summary>
+            Gets or sets the template used for providing input when field is not bound to a coded-value domain.
+            </summary>
+            <seealso cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.FeatureDataField.ReadOnlyTemplate"/>
+            <seealso cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.FeatureDataField.SelectorTemplate"/>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Toolkit.UI.Controls.FeatureDataField.InputTemplateProperty">
+            <summary>
+            Identifies the <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.FeatureDataField.InputTemplate"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.FeatureDataField.ReadOnlyTemplate">
+            <summary>
+            Gets or sets the template used when <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.FeatureDataField.IsReadOnly"/> is <c>true</c>
+            or field is read-only as defined by field schema.
+            </summary>
+            <seealso cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.FeatureDataField.InputTemplate"/>
+            <seealso cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.FeatureDataField.SelectorTemplate"/>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Toolkit.UI.Controls.FeatureDataField.ReadOnlyTemplateProperty">
+            <summary>
+            Identifies the <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.FeatureDataField.ReadOnlyTemplate"/> dependency property.
+            </summary>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.FeatureDataField.GetTextBoxChangedListener(System.Windows.DependencyObject)">
+            <summary>
+            *FOR INTERNAL USE ONLY* : Gets the text box changed listener.
+            </summary>
+            <param name="obj"><see cref="T:System.Windows.DependencyObject"/></param>
+            <exclude/>
+            <returns><see cref="T:System.Windows.Controls.TextBox"/></returns>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.FeatureDataField.SetTextBoxChangedListener(System.Windows.DependencyObject,System.Windows.Controls.TextBox)">
+            <summary>
+            *FOR INTERNAL USE ONLY* : Sets the text box changed listener.
+            </summary>
+            <param name="obj"><see cref="T:System.Windows.DependencyObject"/></param>
+            <param name="value"><see cref="T:System.Windows.Controls.TextBox"/></param>
+            <exclude/>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Toolkit.UI.Controls.FeatureDataField.TextBoxChangedListenerProperty">
+            <summary>
+            *FOR INTERNAL USE ONLY* : The text box changed listener property
+            </summary>
+            <remarks>
+            Subscribes to TextBox.TextChanged to perform validation while the string content is updated.
+            If a two-way binding on Text property exists, UpdateSource will push the change to feature attribute,
+            which will trigger validation based on field type and raise <see cref="E:Esri.ArcGISRuntime.Toolkit.UI.Controls.FeatureDataField.ValueChanging"/> to also
+            accommodate any custom validation.
+            </remarks>
+            <exclude/>
+        </member>
+        <member name="E:Esri.ArcGISRuntime.Toolkit.UI.Controls.FeatureDataField.ValueChanging">
+            <summary>
+            Occurs when the field attribute value has changed but has not yet been committed back to the feature.
+            </summary>
+            <remarks>
+            This event may be used to provide custom validation by throwing an exception in the event handler.
+            </remarks>
+            <seealso cref="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.FeatureDataField.OnValueChanging(System.Object,System.Object)"/>
+        </member>
+        <member name="E:Esri.ArcGISRuntime.Toolkit.UI.Controls.FeatureDataField.ValueChanged">
+            <summary>
+            Occurs when the field attribute value has changed and committed back to the feature.
+            </summary>
+            <seealso cref="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.FeatureDataField.OnValueChanged(System.Object,System.Object)"/>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.FeatureDataField.Refresh">
+            <summary>
+            Generates the control for <see cref="T:Esri.ArcGISRuntime.Toolkit.UI.Controls.FeatureDataField"/>.
+            </summary>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.FeatureDataField.GenerateSelectorField">
+            <summary>
+            Generates data field for <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.FeatureDataField.SelectorTemplate"/>.
+            </summary>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.FeatureDataField.GenerateInputField">
+            <summary>
+            Generates data field for <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.FeatureDataField.InputTemplate"/>.
+            </summary>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.FeatureDataField.GenerateReadOnlyField">
+            <summary>
+            Generates data field for <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.FeatureDataField.ReadOnlyTemplate"/>.
+            </summary>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.FeatureDataField.ValueChangedCallback(System.Object)">
+            <summary>
+            Callback used to track when value changes in one of the <see cref="T:Esri.ArcGISRuntime.Toolkit.UI.Controls.DataItem"/> classes.
+            </summary>
+            <param name="value">new value entered or selected by user.</param>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.FeatureDataField.ConvertToFieldType(System.Object)">
+            <summary>
+            Converts value to its correct field type.
+            </summary>
+            <param name="value">value to convert.</param>
+            <returns>value in its correct field type or value.</returns>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.FeatureDataField.UpdateValidationState">
+            <summary>
+            Updates the validation state based on <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.FeatureDataField.ValidationException"/>
+            </summary>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.FeatureDataField.GoToState(System.Windows.DependencyObject,System.String)">
+            <summary>
+            Updates visual state of control using visual state manager or visual state group.
+            </summary>
+            <param name="element">control or framework element whose state need to change.</param>
+            <param name="state">target visual state.</param>
+            <returns>a value indicating whether visual state is changed.</returns>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.FeatureDataField.TryValidationState(System.Windows.FrameworkElement,System.String)">
+            <summary>
+            Updates visual state by invoking storyboard.
+            </summary>
+            <param name="element">framework element whose state need to change.</param>
+            <param name="stateName">validation state whose storyboard need to be invoked.</param>
+            <returns>a value indicating whether visual state is changed.</returns>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.FeatureDataField.Cancel">
+            <summary>
+            Cancels the edit and reverts back to last saved value on feature.
+            </summary>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.FeatureDataField.CommitChange(System.Object)">
+            <summary>
+            Updates feature attribute to commit the attribute edit from <see cref="T:Esri.ArcGISRuntime.Toolkit.UI.Controls.FeatureDataField"/>
+            </summary>
+            <param name="value">The new attribute value.</param>
+            <returns>a value indicating whether change is committed.</returns>
+        </member>
+        <member name="T:Esri.ArcGISRuntime.Toolkit.UI.Controls.InputDataItem">
+            <summary>
+            InputDataItem is a bindable object for <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.FeatureDataField.InputTemplate"/>.
+            </summary>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.InputDataItem.#ctor(System.Action{System.Object},System.Object,Esri.ArcGISRuntime.Data.Field)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Esri.ArcGISRuntime.Toolkit.UI.Controls.InputDataItem" /> class.
+            </summary>
+            <param name="callback">callback raised when <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.DataItem.Value"/> property changes.</param>
+            <param name="value">default value.</param>
+            <param name="field">contains schema for field value.</param>
+        </member>
+        <member name="T:Esri.ArcGISRuntime.Toolkit.UI.Controls.ReadOnlyDataItem">
+            <summary>
+            ReadOnlyDataItem is a bindable object for <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.FeatureDataField.ReadOnlyTemplate"/>.
+            </summary>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.ReadOnlyDataItem.#ctor(System.Object,Esri.ArcGISRuntime.Data.Field)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Esri.ArcGISRuntime.Toolkit.UI.Controls.ReadOnlyDataItem" /> class.
+            </summary>
+            <param name="value">default value.</param>
+            <param name="field">contains schema for field value.</param>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.ReadOnlyDataItem.Value">
+            <summary>
+            Gets or sets the current attribute value of field.
+            </summary>
+        </member>
+        <member name="T:Esri.ArcGISRuntime.Toolkit.UI.Controls.SelectorDataItem">
+            <summary>
+            SelectorDataItem is a bindable object for <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.FeatureDataField.SelectorTemplate"/>.
+            </summary>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.SelectorDataItem.#ctor(System.Action{System.Object},System.Object,System.Collections.Generic.IEnumerable{Esri.ArcGISRuntime.Data.CodedValue})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Esri.ArcGISRuntime.Toolkit.UI.Controls.SelectorDataItem" /> class.
+            </summary>
+            <param name="callback">callback raised when <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.DataItem.Value"/> property changes.</param>
+            <param name="value">default value selected.</param>
+            <param name="items">coded-value domain options.</param>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.SelectorDataItem.GetSelectedItem(System.Object)">
+            <summary>
+            Returns the matching key-value from <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.SelectorDataItem.Items"/>.
+            </summary>
+            <param name="value">key value.</param>
+            <returns>matching key-value.</returns>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.SelectorDataItem.Items">
+            <summary>
+            Gets or sets the Items used as source for <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.FeatureDataField.SelectorTemplate"/>
+            </summary>
+        </member>
+        <member name="T:Esri.ArcGISRuntime.Toolkit.UI.Controls.LayerLegend">
+            <summary>
+            The Legend Control that generates a list of Legend Items for a Layer
+            </summary>
+            <summary>
+            The Legend Control that generates a list of Legend Items for a Layer
+            </summary>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.LayerLegend.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Esri.ArcGISRuntime.Toolkit.UI.Controls.LayerLegend"/> class.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.LayerLegend.LayerContent">
+            <summary>
+            Gets or sets the layer to display the legend for.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.LayerLegend.IncludeSublayers">
+            <summary>
+            Gets or sets a value indicating whether the entire <see cref="T:Esri.ArcGISRuntime.Mapping.ILayerContent"/> tree hierarchy should be rendered
+            </summary>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.LayerLegend.OnApplyTemplate">
+            <inheritdoc/>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.LayerLegend.LayerContentImpl">
+            <summary>
+            Gets or sets the layer to display the legend for.
+            </summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Toolkit.UI.Controls.LayerLegend.LayerProperty">
+            <summary>
+            Identifies the <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.LayerLegend.LayerContent"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.LayerLegend.IncludeSublayersImpl">
+            <summary>
+            Gets or sets a value indicating whether the entire <see cref="T:Esri.ArcGISRuntime.Mapping.ILayerContent"/> tree hierarchy should be rendered
+            </summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Toolkit.UI.Controls.LayerLegend.IncludeSublayersProperty">
+            <summary>
+            Identifies the <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.LayerLegend.IncludeSublayers"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.LayerLegend.ItemTemplate">
+            <summary>
+            Gets or sets the ItemsTemplate
+            </summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Toolkit.UI.Controls.LayerLegend.ItemTemplateProperty">
+            <summary>
+            Identifies the <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.LayerLegend.ItemTemplate"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.LayerLegend.ItemsPanel">
+            <summary>
+            Gets or sets the Items Panel Template
+            </summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Toolkit.UI.Controls.LayerLegend.ItemsPanelProperty">
+            <summary>
+            Identifies the <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.LayerLegend.ItemsPanel"/> dependency property.
+            </summary>
+        </member>
+        <member name="T:Esri.ArcGISRuntime.Toolkit.UI.Controls.LayerList">
+            <summary>
+            The base class for <see cref="T:Esri.ArcGISRuntime.Toolkit.UI.Controls.Legend"/>
+            and TableOfContents control is used to display symbology and description for a set of <see cref="T:Esri.ArcGISRuntime.Mapping.Layer"/>s
+            in a <see cref="T:Esri.ArcGISRuntime.Mapping.Map"/> or <see cref="T:Esri.ArcGISRuntime.Mapping.Scene"/> contained in a <see cref="T:Esri.ArcGISRuntime.UI.Controls.GeoView"/>.
+            </summary>
+            <summary>
+            The base class for <see cref="T:Esri.ArcGISRuntime.Toolkit.UI.Controls.Legend"/>
+            and TableOfContents control is used to display symbology and description for a set of <see cref="T:Esri.ArcGISRuntime.Mapping.Layer"/>s
+            in a <see cref="T:Esri.ArcGISRuntime.Mapping.Map"/> or <see cref="T:Esri.ArcGISRuntime.Mapping.Scene"/> contained in a <see cref="T:Esri.ArcGISRuntime.UI.Controls.GeoView"/>.
+            </summary>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.LayerList.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Esri.ArcGISRuntime.Toolkit.UI.Controls.LayerList"/> class.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.LayerList.GeoView">
+            <summary>
+            Gets or sets the geoview that contain the layers whose symbology and description will be displayed.
+            </summary>
+            <seealso cref="T:Esri.ArcGISRuntime.UI.Controls.MapView"/>
+            <seealso cref="T:Esri.ArcGISRuntime.UI.Controls.SceneView"/>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.LayerList.FilterByVisibleScaleRange">
+            <summary>
+            Gets or sets a value indicating whether the scale of <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.LayerList.GeoView"/> and any scale ranges on the <see cref="T:Esri.ArcGISRuntime.Mapping.Layer"/>s
+            are used to determine when legend for layer is displayed.
+            </summary>
+            <remarks>
+            If <c>true</c>, legend for layer is displayed only when layer is in visible scale range;
+            otherwise, <c>false</c>, legend for layer is displayed regardless of its scale range.
+            </remarks>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.LayerList.ReverseLayerOrder">
+            <summary>
+            Gets or sets a value indicating whether the order of layers in the <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.LayerList.GeoView"/>, top to bottom, is used.
+            </summary>
+            <remarks>
+            If <c>true</c>, legend for layers is displayed from top to bottom order;
+            otherwise, <c>false</c>, legend for layers is displayed from bottom to top order.
+            </remarks>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.LayerList.ShowLegendInternal">
+            <summary>
+            Gets or sets a value indicating whether legend is displayed.
+            </summary>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.LayerList.OnApplyTemplate">
+            <inheritdoc/>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.LayerList.Refresh">
+            <summary>
+            Generates layer list for a set of <see cref="T:Esri.ArcGISRuntime.Mapping.Layer"/>s in a <see cref="T:Esri.ArcGISRuntime.Mapping.Map"/> or <see cref="T:Esri.ArcGISRuntime.Mapping.Scene"/>
+            contained in a <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.LayerList.GeoView"/>
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.LayerList.GeoViewImpl">
+            <summary>
+            Gets or sets the geoview that contain the layers whose symbology and description will be displayed.
+            </summary>
+            <seealso cref="T:Esri.ArcGISRuntime.UI.Controls.MapView"/>
+            <seealso cref="T:Esri.ArcGISRuntime.UI.Controls.SceneView"/>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Toolkit.UI.Controls.LayerList.GeoViewProperty">
+            <summary>
+            Identifies the <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.LayerList.GeoView"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.LayerList.FilterByVisibleScaleRangeImpl">
+            <summary>
+            Gets or sets a value indicating whether the scale of <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.LayerList.GeoView"/> and any scale ranges on the <see cref="T:Esri.ArcGISRuntime.Mapping.Layer"/>s
+            are used to determine when legend for layer is displayed.
+            </summary>
+            <remarks>
+            If <c>true</c>, legend for layer is displayed only when layer is in visible scale range;
+            otherwise, <c>false</c>, legend for layer is displayed regardless of its scale range.
+            </remarks>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Toolkit.UI.Controls.LayerList.FilterByVisibleScaleRangeProperty">
+            <summary>
+            Identifies the <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.LayerList.FilterByVisibleScaleRange"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.LayerList.ReverseLayerOrderImpl">
+            <summary>
+            Gets or sets a value indicating whether the order of layers in the <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.LayerList.GeoView"/>, top to bottom, is used.
+            </summary>
+            <remarks>
+            If <c>true</c>, legend for layers is displayed from top to bottom order;
+            otherwise, <c>false</c>, legend for layers is displayed from bottom to top order.
+            </remarks>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Toolkit.UI.Controls.LayerList.ReverseLayerOrderProperty">
+            <summary>
+            Identifies the <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.LayerList.ReverseLayerOrder"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.LayerList.LayerItemTemplate">
+            <summary>
+            Gets or sets the item template for each layer content entry
+            </summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Toolkit.UI.Controls.LayerList.LayerItemTemplateProperty">
+            <summary>
+            Identifies the <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.LayerList.LayerItemTemplate"/> dependency property.
+            </summary>
+        </member>
+        <member name="E:Esri.ArcGISRuntime.Toolkit.UI.Controls.LayerList.LayerContentContextMenuOpening">
+            <summary>
+            Event fired by the <see cref="T:Esri.ArcGISRuntime.Toolkit.UI.Controls.LayerList"/> when right-clicking an item
+            </summary>
+        </member>
+        <member name="T:Esri.ArcGISRuntime.Toolkit.UI.Controls.ObservableLayerContentList">
+            <summary>
+            This class manages the tree of layer contents, and tracks their state (loading, changing etc)
+            </summary>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.ObservableLayerContentList.#ctor(Esri.ArcGISRuntime.UI.Controls.MapView,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Esri.ArcGISRuntime.Toolkit.UI.Controls.ObservableLayerContentList"/> class.
+            </summary>
+            <param name="mapView">MapView and its Map to monitor</param>
+            <param name="showLegend">Also generate the legend for the layer contents</param>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.ObservableLayerContentList.#ctor(Esri.ArcGISRuntime.UI.Controls.SceneView,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Esri.ArcGISRuntime.Toolkit.UI.Controls.ObservableLayerContentList"/> class.
+            Initializes a new instance of the <seealso cref="T:Esri.ArcGISRuntime.Toolkit.UI.Controls.ObservableLayerContentList"/>
+            </summary>
+            <param name="sceneView">SceneView and its Scene to monitor</param>
+            <param name="showLegend">Also generate the legend for the layer contents</param>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.ObservableLayerContentList.Item(System.Int32)">
+            <inheritdoc cref="P:System.Collections.Generic.IReadOnlyList`1.Item(System.Int32)"/>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.ObservableLayerContentList.Count">
+            <inheritdoc cref="P:System.Collections.Generic.IReadOnlyCollection`1.Count"/>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.ObservableLayerContentList.GetEnumerator">
+            <inheritdoc cref="M:System.Collections.Generic.IEnumerable`1.GetEnumerator"/>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.ObservableLayerContentList.System#Collections#IEnumerable#GetEnumerator">
+            <inheritdoc cref="M:System.Collections.IEnumerable.GetEnumerator"/>
+        </member>
+        <member name="E:Esri.ArcGISRuntime.Toolkit.UI.Controls.ObservableLayerContentList.PropertyChanged">
+            <inheritdoc cref="E:System.ComponentModel.INotifyPropertyChanged.PropertyChanged"/>
+        </member>
+        <member name="E:Esri.ArcGISRuntime.Toolkit.UI.Controls.ObservableLayerContentList.CollectionChanged">
+            <inheritdoc cref="E:System.Collections.Specialized.INotifyCollectionChanged.CollectionChanged"/>
+        </member>
+        <member name="T:Esri.ArcGISRuntime.Toolkit.UI.Controls.Legend">
+            <summary>
+            The Legend control is used to display symbology and description for a set of <see cref="T:Esri.ArcGISRuntime.Mapping.Layer"/>s
+            in a <see cref="T:Esri.ArcGISRuntime.Mapping.Map"/> or <see cref="T:Esri.ArcGISRuntime.Mapping.Scene"/> contained in a <see cref="T:Esri.ArcGISRuntime.UI.Controls.GeoView"/>.
+            </summary>
+            <summary>
+            The Legend control is used to display symbology and description for a set of <see cref="T:Esri.ArcGISRuntime.Mapping.Layer"/>s
+            in a <see cref="T:Esri.ArcGISRuntime.Mapping.Map"/> or <see cref="T:Esri.ArcGISRuntime.Mapping.Scene"/> contained in a <see cref="T:Esri.ArcGISRuntime.UI.Controls.GeoView"/>.
+            </summary>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.Legend.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Esri.ArcGISRuntime.Toolkit.UI.Controls.Legend"/> class.
+            </summary>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.Legend.OnApplyTemplate">
+            <inheritdoc />
+        </member>
+        <member name="T:Esri.ArcGISRuntime.Toolkit.UI.Controls.LegendItemTemplateSelector">
+            <summary>
+            Determines which DataTemplate to use for a given layer content item in a Legend control.
+            </summary>
+        </member>
+        <member name="T:Esri.ArcGISRuntime.Toolkit.UI.Controls.MeasureToolbar">
+            <summary>
+            The MeasureToolbar control is used to measure distances and areas on a <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.MeasureToolbar.MapView"/>.
+            </summary>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.MeasureToolbar.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Esri.ArcGISRuntime.Toolkit.UI.Controls.MeasureToolbar"/> class.
+            </summary>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.MeasureToolbar.OnApplyTemplate">
+            <inheritdoc/>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.MeasureToolbar.PrepareMeasureMode">
+            <summary>
+            Updates UI based on measure mode.
+            - Only one of the measure toggle buttons is enabled
+            - Only one of the units selector is visible
+            - Updates instruction text
+            - Assigns the appropriate SketchEditor
+            - Updates command to execute on clear
+            </summary>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.MeasureToolbar.PrepareUnitSelector(Esri.ArcGISRuntime.Geometry.Geometry)">
+            <summary>
+            Updates visibility of unit selector based on geometry type.
+            </summary>
+            <param name="geometry">geometry to measure</param>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.MeasureToolbar.DisplayResult(Esri.ArcGISRuntime.Geometry.Geometry)">
+            <summary>
+            Displays the measurement result
+            </summary>
+            <param name="geometry">geometry to measure</param>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.MeasureToolbar.OnToggleMeasureMode(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Toggles between measure modes and starts SketchEditor when not already started for length and area.
+            </summary>
+            <param name="sender">Toggle button that raised click event</param>
+            <param name="e">Contains information or event data associated with routed event</param>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.MeasureToolbar.OnGeometryChanged(System.Object,Esri.ArcGISRuntime.UI.GeometryChangedEventArgs)">
+            <summary>
+            Displays the measurement result for the given new geometry.
+            </summary>
+            <param name="sender">SketchEditor that raised GeometryChanged event</param>
+            <param name="e">Data for the GeometryChanged event</param>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.MeasureToolbar.OnMapViewTapped(System.Object,Esri.ArcGISRuntime.UI.Controls.GeoViewInputEventArgs)">
+            <summary>
+            Identifies the polyline or polygon feature or graphic whose geometry will be measured.
+            </summary>
+            <param name="sender">MapView that raised GeoViewTapped event</param>
+            <param name="e">Data for the GeoViewTapped event</param>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.MeasureToolbar.GetGeometry(System.Collections.Generic.IEnumerable{Esri.ArcGISRuntime.Data.IdentifyLayerResult})">
+            <summary>
+            Recursively checks SublayerResults and returns the geometry of the first polyline or polygon feature.
+            </summary>
+            <param name="identifyLayerResults">Results returned from identifying layers</param>
+            <returns>the first polyline or polygon geometry</returns>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.MeasureToolbar.GetGeometry(System.Collections.Generic.IEnumerable{Esri.ArcGISRuntime.Data.IdentifyGraphicsOverlayResult})">
+            <summary>
+            Returns the geometry of the first polyline or polygon graphic.
+            </summary>
+            <param name="identifyGraphicsOverlayResults">Results returned from identifying graphics</param>
+            <returns>the first polyline or polygon geometry</returns>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.MeasureToolbar.OnClear(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Clears the map of any graphics from measuring distance, area or feature.
+            This will also clear undo/redo stack.
+            </summary>
+            <param name="sender">Button that raised clicked event</param>
+            <param name="e">Contains information or event data associated with routed event</param>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.MeasureToolbar.MapView">
+            <summary>
+            Gets or sets the map view where measuring distances and areas will be done.
+            </summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Toolkit.UI.Controls.MeasureToolbar.MapViewProperty">
+            <summary>
+            Identifies the <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.MeasureToolbar.MapView"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.MeasureToolbar.LineSketchEditor">
+            <summary>
+            Gets or sets the sketch editor used for measuring distances.
+            </summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Toolkit.UI.Controls.MeasureToolbar.LineSketchEditorProperty">
+            <summary>
+            Identifies the <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.MeasureToolbar.LineSketchEditor"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.MeasureToolbar.AreaSketchEditor">
+            <summary>
+            Gets or sets the sketch edtiro used for measuring areas.
+            </summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Toolkit.UI.Controls.MeasureToolbar.AreaSketchEditorProperty">
+            <summary>
+            Identifies the <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.MeasureToolbar.AreaSketchEditor"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.MeasureToolbar.SelectionLineSymbol">
+            <summary>
+            Gets or sets the symbol used for highlighting the polyline feature or graphic whose geometry is measured for distance.
+            </summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Toolkit.UI.Controls.MeasureToolbar.SelectionLineSymbolProperty">
+            <summary>
+            Identifies the <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.MeasureToolbar.SelectionLineSymbol"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.MeasureToolbar.SelectionFillSymbol">
+            <summary>
+            Gets or sets the symbol used for highlighting the polygon feature or graphic whose geometry is measured for area.
+            </summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Toolkit.UI.Controls.MeasureToolbar.SelectionFillSymbolProperty">
+            <summary>
+            Identifies the <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.MeasureToolbar.SelectionFillSymbol"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.MeasureToolbar.LinearUnits">
+            <summary>
+            Gets or sets the collection of <see cref="T:Esri.ArcGISRuntime.Geometry.LinearUnit"/> used to configure display for distance measurements.
+            </summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Toolkit.UI.Controls.MeasureToolbar.LinearUnitsProperty">
+            <summary>
+            Identifies the <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.MeasureToolbar.LinearUnits"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.MeasureToolbar.SelectedLinearUnit">
+            <summary>
+            Gets or sets the unit used to display for distance measurements.
+            </summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Toolkit.UI.Controls.MeasureToolbar.SelectedLinearUnitProperty">
+            <summary>
+            Identifies the <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.MeasureToolbar.SelectedLinearUnit"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.MeasureToolbar.AreaUnits">
+            <summary>
+            Gets or sets the collection of <see cref="T:Esri.ArcGISRuntime.Geometry.AreaUnit"/> used to configure display for area measurements.
+            </summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Toolkit.UI.Controls.MeasureToolbar.AreaUnitsProperty">
+            <summary>
+            Identifies the <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.MeasureToolbar.AreaUnits"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.MeasureToolbar.SelectedAreaUnit">
+            <summary>
+            Gets or sets the unit used to display for area measurements.
+            </summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Toolkit.UI.Controls.MeasureToolbar.SelectedAreaUnitProperty">
+            <summary>
+            Identifies the <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.MeasureToolbar.SelectedAreaUnit"/> dependency property.
+            </summary>
+        </member>
+        <member name="T:Esri.ArcGISRuntime.Toolkit.UI.Controls.PopupViewer">
+            <summary>
+            The PopupViewer control is used to display details and media, edit attributes, geometry and related records,
+            manage attachments of an <see cref="T:Esri.ArcGISRuntime.Data.ArcGISFeature"/> or a <see cref="T:Esri.ArcGISRuntime.UI.Graphic"/>
+            as defined in its <see cref="T:Esri.ArcGISRuntime.Mapping.Popups.Popup"/>.
+            </summary>
+            <summary>
+            The PopupViewer control is used to display details and media, edit attributes, geometry and related records,
+            manage attachments of an <see cref="T:Esri.ArcGISRuntime.Data.ArcGISFeature"/> or a <see cref="T:Esri.ArcGISRuntime.UI.Graphic"/>
+            as defined in its <see cref="T:Esri.ArcGISRuntime.Mapping.Popups.Popup"/>.
+            </summary>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.PopupViewer.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Esri.ArcGISRuntime.Toolkit.UI.Controls.PopupViewer"/> class.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.PopupViewer.PopupManager">
+            <summary>
+            Gets or sets the associated PopupManager which contains popup and sketch editor.
+            </summary>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.PopupViewer.OnApplyTemplate">
+            <inheritdoc/>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.PopupViewer.PopupManagerImpl">
+            <summary>
+            Gets or sets the associated PopupManager which contains popup and sketch editor.
+            </summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Toolkit.UI.Controls.PopupViewer.PopupManagerProperty">
+            <summary>
+            Identifies the <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.PopupViewer.PopupManager"/> dependency property.
+            </summary>
+        </member>
+        <member name="T:Esri.ArcGISRuntime.Toolkit.UI.Controls.ScaleLine">
+            <summary>
+            The ScaleLine Control generates a line representing
+            a certain distance on the map in both Metric and US units.
+            </summary>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.ScaleLine.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Esri.ArcGISRuntime.Toolkit.UI.Controls.ScaleLine"/> class.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.ScaleLine.MapScale">
+            <seealso cref="F:Esri.ArcGISRuntime.Toolkit.UI.Controls.ScaleLine.MapViewProperty"/>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.ScaleLine.TargetWidth">
+            <summary>
+            Gets or sets the width that will be used to
+            calculate the length of the ScaleLine
+            </summary>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.ScaleLine.SetUsUnit(System.Double,System.String)">
+            <summary>
+            Sets the imperial units section of the scale line
+            </summary>
+            <param name="value">map scale in imperial units</param>
+            <param name="unit">imperial unit</param>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.ScaleLine.SetMetricUnit(System.Double,System.String)">
+            <summary>
+            Sets the metric units section of the scale line
+            </summary>
+            <param name="value">map scale in metric units</param>
+            <param name="unit">metric unit</param>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.ScaleLine.ConvertInchesTo(Esri.ArcGISRuntime.Geometry.LinearUnit)">
+            <summary>
+            1. (target_width_pixels / 96) = target_width_inches
+            2. target_width_inches * map_scale = map_scale_inches
+            3. map_scale_inches converted to meters = map_scale_meters
+            </summary>
+            <returns>value that represents the maps scale in meters</returns>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.ScaleLine.CalculateScale(Esri.ArcGISRuntime.Geometry.Polygon,System.Double)">
+            <summary>
+            Calculates the scale at the center of a polygon, at a given pixel size
+            </summary>
+            <remarks>
+            A pixel is a device independent logical pixel - ie 1/96 inches.
+            </remarks>
+            <param name="visibleArea">The area which center the scale will be calculated for.</param>
+            <param name="unitsPerPixel">The size of a device indepedent pixel in the units of the spatial reference</param>
+            <returns>The MapScale for the center of the view</returns>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.ScaleLine.OnApplyTemplate">
+            <inheritdoc/>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.ScaleLine.MapScaleImpl">
+            <summary>
+            Gets or sets the platform-specific implementation of the <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.ScaleLine.MapScale"/> property
+            </summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Toolkit.UI.Controls.ScaleLine.MapScaleProperty">
+            <summary>
+            The dependency property for the Scale property.
+            </summary>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.ScaleLine.OnMapScalePropertyChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            The property changed event that is raised when
+            the value of Scale property changes.
+            </summary>
+            <param name="d">ScaleLine</param>
+            <param name="e">Contains information related to the change to the Scale property.</param>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.ScaleLine.TargetWidthImpl">
+            <summary>
+            Gets or sets the platform-specific implementation of the <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.ScaleLine.TargetWidth"/> property
+            </summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Toolkit.UI.Controls.ScaleLine.TargetWidthProperty">
+            <summary>
+            Identifies the dependency property for the <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.ScaleLine.TargetWidth"/> property.
+            </summary>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.ScaleLine.OnTargetWidthPropertyChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            The property changed handler that is called when
+            the value of TargetWidth property changes.
+            </summary>
+            <param name="d">ScaleLine</param>
+            <param name="e">Contains information related to the change to the TargetWidth property.</param>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.ScaleLine.MapView">
+            <summary>
+            Gets or sets the MapView property that can be attached to a Scaleline control to accurately set the scale, instead of
+            setting the <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.ScaleLine.MapScale"/> property directly.
+            </summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Toolkit.UI.Controls.ScaleLine.MapViewProperty">
+            <summary>
+            Identifies the <see cref="T:Esri.ArcGISRuntime.UI.Controls.GeoView"/> Dependency Property
+            </summary>
+        </member>
+        <member name="T:Esri.ArcGISRuntime.Toolkit.UI.Controls.SymbolDisplay">
+            <summary>
+            A control that renders a <see cref="T:Esri.ArcGISRuntime.Symbology.Symbol"/>.
+            </summary>
+            <summary>
+            A control that renders a <see cref="T:Esri.ArcGISRuntime.Symbology.Symbol"/>.
+            </summary>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.SymbolDisplay.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Esri.ArcGISRuntime.Toolkit.UI.Controls.SymbolDisplay"/> class.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.SymbolDisplay.Symbol">
+            <summary>
+            Gets or sets the symbol to render
+            </summary>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.SymbolDisplay.OnApplyTemplate">
+            <inheritdoc />
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.SymbolDisplay.SymbolImpl">
+            <summary>
+            Gets or sets the symbol to render
+            </summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Toolkit.UI.Controls.SymbolDisplay.SymbolProperty">
+            <summary>
+            Identifies the <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.SymbolDisplay.Symbol"/> dependency property.
+            </summary>
+        </member>
+        <member name="T:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider">
+            <summary>
+            The TimeSlider is a utility Control that emits TimeExtent values typically for use with the Map Control
+            to enhance the viewing of geographic features that have attributes based upon Date/Time information.
+            </summary>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider"/> class.
+            </summary>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.UpdateTrackLayout(Esri.ArcGISRuntime.TimeExtent)">
+            <summary>
+            Updates slider track UI components to display the specified time extent
+            </summary>
+            <param name="extent">The time extent to display on the slider track</param>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.CalculateTextSize(System.Windows.Controls.TextBlock,System.String)">
+            <summary>
+            Calculates the size of the specified text using the specified TextBlock's font properites
+            </summary>
+            <param name="textBlock">The TextBlock to use in the size calculation</param>
+            <param name="text">The text to calculate the size for.  If unspecified, the size of the TextBlock's text will be calculated.</param>
+            <returns>The size of the text</returns>
+            <remarks>This method is useful in cases where a TextBlock's text has updated, but its layout has not.  In such cases,
+            the ActualWidth and ActualHeight properties are not representative of the new text.</remarks>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.Snap(Esri.ArcGISRuntime.TimeExtent)">
+            <summary>
+            Adjusts the specified time extent so that it starts and ends at a valid time step interval
+            </summary>
+            <param name="extent">The time extent to adjust</param>
+            <returns>The snapped time extent</returns>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.PositionTickmarks">
+            <summary>
+            Positions the tickmarks along the slider's tick bar
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.IsCurrentExtentTimeInstant">
+            <summary>
+            Gets a value indicating whether or not the current extent represents a time instant
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.ValidFullExtent">
+            <summary>
+            Gets the current FullExtent or, if unavailable, a valid substitute
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.CurrentValidExtent">
+            <summary>
+            Gets the CurrentExtent or, if invalid, a valid substitute
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.CurrentExtent">
+            <summary>
+            Gets or sets the <see cref="T:Esri.ArcGISRuntime.TimeExtent" /> associated with the visual thumbs(s) displayed on the TimeSlider.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.FullExtent">
+            <summary>
+            Gets or sets the <see cref="T:Esri.ArcGISRuntime.TimeExtent" /> that specifies the overall start and end time of the time slider instance
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.TimeStepInterval">
+            <summary>
+            Gets or sets the time step intervals for the time slider.  The slider thumbs will snap to and tick marks will be shown at this interval.
+            </summary>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.CalculateTimeSteps">
+            <summary>
+            Updates time steps based on the current TimeStepInterval and FullExtent.  Executes asynchronously to ensure that pending updates to
+            both TimeStepInterval and FullExtent are taken into account before intervals and subsequent layout updates are calculated.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.TimeSteps">
+            <summary>
+            Gets the time steps that can be used to set the slider instance's current extent
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.PlaybackInterval">
+            <summary>
+            Gets or sets the interval at which the time slider's current extent will move to the next or previous time step
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.PlaybackDirection">
+            <summary>
+            Gets or sets whether the current extent will move to the next or the previous time step during playback
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.PlaybackLoopMode">
+            <summary>
+            Gets or sets the behavior when the current extent reaches the end of the slider during playback
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.IsStartTimePinned">
+            <summary>
+            Gets or sets a value indicating whether the start time of the <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.CurrentExtent"/> is locked into place
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.IsEndTimePinned">
+            <summary>
+            Gets or sets a value indicating whether the end time of the <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.CurrentExtent"/> is locked into place
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.IsPlaying">
+            <summary>
+            Gets or sets a value indicating whether the time slider is animating playback
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.FullExtentLabelFormat">
+            <summary>
+            Gets or sets the string format to use for displaying the start and end labels for the <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.FullExtent"/>
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.CurrentExtentLabelFormat">
+            <summary>
+            Gets or sets the string format to use for displaying the start and end labels for the <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.CurrentExtent"/>
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.TimeStepIntervalLabelFormat">
+            <summary>
+            Gets or sets the string format to use for displaying the labels for the tick marks representing each time step interval
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.LabelMode">
+            <summary>
+            Gets or sets the mode to use for labels along the time slider
+            </summary>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.ApplyLabelMode(Esri.ArcGISRuntime.Toolkit.UI.TimeSliderLabelMode)">
+            <summary>
+            Updates the slider for the specified label mode
+            </summary>
+            <param name="labelMode">The label mode to apply</param>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.ThumbStroke">
+            <summary>
+            Gets or sets the border color of the thumbs
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.ThumbFill">
+            <summary>
+            Gets or sets the fill color of the thumbs
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.CurrentExtentFill">
+            <summary>
+            Gets or sets the fill color of the area on the slider track that indicates the <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.CurrentExtent"/>
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.FullExtentFill">
+            <summary>
+            Gets or sets the fill color of the area on the slider track that indicates the <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.FullExtent"/>
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.FullExtentStroke">
+            <summary>
+            Gets or sets the border color of the area on the slider track that indicates the <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.FullExtent"/>
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.TimeStepIntervalTickFill">
+            <summary>
+            Gets or sets the color of the slider's tickmarks
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.PlaybackButtonsFill">
+            <summary>
+            Gets or sets the fill color of the playback buttons
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.PlaybackButtonsStroke">
+            <summary>
+            Gets or sets the border color of the playback buttons
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.FullExtentLabelColor">
+            <summary>
+            Gets or sets the color of the full extent labels
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.CurrentExtentLabelColor">
+            <summary>
+            Gets or sets the color of the current extent labels
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.TimeStepIntervalLabelColor">
+            <summary>
+            Gets or sets the color of the time step interval labels
+            </summary>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.InitializeTimeSteps(System.Int32)">
+             <summary>
+             Updates the time slider to have the specified number of time steps
+             </summary>
+             <param name="count">The number of time steps</param>
+             <remarks>This method divides the TimeSlider instance's <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.FullExtent"/> into the number of steps specified,
+             updating the <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.TimeStepInterval"/> and <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.TimeSteps"/> properties.  The method will attempt to set
+             the interval to a TimeValue with the smallest duration and largest time unit that will fit evenly (i.e. without
+             fractional duration values) into the TimeSlider's full extent.  If there is no TimeValue that will fit evenly, then
+             the interval will be initialized to the smallest possible fractional duration that is greater than one with a time
+             unit of days or smaller.
+            
+             Note that, if the TimeSlider instance's FullExtent property is not set, invoking this method will have no effect.</remarks>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.InitializeTimePropertiesAsync(Esri.ArcGISRuntime.UI.Controls.GeoView)">
+            <summary>
+            Initializes the time slider's temporal properties based on the specified GeoView. Specifically,
+            this will initialize <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.FullExtent"/>, <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.TimeStepInterval"/>, and <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.CurrentExtent"/>
+            </summary>
+            <param name="geoView">The GeoView to use to initialize the time-slider's properties</param>
+            <returns>Task</returns>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.InitializeTimePropertiesAsync(Esri.ArcGISRuntime.ITimeAware)">
+            <summary>
+            Initializes the time slider's temporal properties based on the specified time-aware layer. Specifically,
+            this will initialize <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.FullExtent"/>, <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.TimeStepInterval"/>, and <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.CurrentExtent"/>.
+            </summary>
+            <param name="timeAwareLayer">The layer to use to initialize the time slider</param>
+            <returns>Task</returns>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.GetTimeStepIntervalAsync(Esri.ArcGISRuntime.ITimeAware)">
+            <summary>
+            Gets the default time-step interval for the specified time-aware layer
+            </summary>
+            <param name="timeAwareLayer">The time-aware layer to retrieve the interval for</param>
+            <returns>The interval, represented as a <see cref="T:Esri.ArcGISRuntime.TimeValue"/> instance</returns>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.CanUseInstantaneousTimeAsync(Esri.ArcGISRuntime.ITimeAware)">
+            <summary>
+            Gets whether an instantaneous time filter can be applied to the specified time-aware layer
+            </summary>
+            <param name="timeAwareLayer">The time-aware layer to check</param>
+            <returns><c>true</c> if the layer can be filtered based on a time instant, otherwise <c>false</c></returns>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.GetTimeInfoAsync(Esri.ArcGISRuntime.ILoadable)">
+            <summary>
+            Returns the layer's time-info, if applicable
+            </summary>
+            <returns>Task</returns>
+        </member>
+        <member name="E:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.CurrentExtentChanged">
+            <summary>
+            Occurs when the selected time extent has changed.
+            </summary>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.StepForward(System.Int32)">
+            <summary>
+            Moves the slider position forward by the specified number of time steps.
+            </summary>
+            <returns><c>true</c> if succeeded, <c>false</c> if the position could not be moved as requested</returns>
+            <param name="timeSteps">The number of steps to advance the slider's position</param>
+            <remarks>When the current time extent represents a time range and neither the start nor end time are pinned, then the number of
+            time steps between the start and end time will always be preserved.  In that case, a value of false will be returned if the
+            extent could not be moved by the specified number of time steps without going beyond the end of the time slider's full extent.
+            If the current time extent is a time instant and either the start or end time are pinned, then the method call will attempt to
+            move the unpinned end of the time extent.  In that case, the method will return false if the unpinned end could not be moved by
+            the specified number of steps without going beyond the end of the full extent or the pinned end of the current extent.  In all
+            cases, when the method returns false, the time slider's current extent will be unchanged.</remarks>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.StepBack(System.Int32)">
+            <summary>
+            Moves the slider position back by the specified number of time steps.
+            </summary>
+            <returns><c>true</c> if succeeded, <c>false</c> if the position could not be moved as requested</returns>
+            <param name="timeSteps">The number of steps to advance the slider's position</param>
+            <remarks>When the current time extent represents a time range and neither the start nor end time are pinned, then the number of
+            time steps between the start and end time will always be preserved.  In that case, a value of false will be returned if the
+            extent could not be moved by the specified number of time steps without going beyond the start of the time slider's full extent.
+            If the current time extent is a time instant and either the start or end time are pinned, then the method call will attempt to
+            move the unpinned end of the time extent.  In that case, the method will return false if the unpinned end could not be moved by
+            the specified number of steps without going beyond the start of the full extent or the pinned end of the current extent.  In all
+            cases, when the method returns false, the time slider's current extent will be unchanged.</remarks>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.MoveTimeStep(System.Int32,System.Boolean)">
+            <summary>
+            Moves the current start and end times by the specified number of time steps
+            </summary>
+            <param name="timeSteps">The number of time steps by which to move the current time.  A positive number will advance the time step forward, while
+            a negative value will move the current time step backward</param>
+            <param name="preserveSpan">Whether to preserve the number of time steps between the current start and end time</param>
+            <returns><c>true</c> if succeeded, <c>false</c> if the time step could not be moved as requested</returns>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.PlayTimer_Tick(System.Object,System.Object)">
+            <summary>
+            Moves the time slider's current extent upon expiration of the playback interval
+            </summary>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.OnApplyTemplate">
+            <summary>
+            When overridden in a derived class, is invoked whenever application
+            code or internal processes (such as a rebuilding layout pass) call
+            <see cref="M:System.Windows.Controls.Control.ApplyTemplate"/>.
+            </summary>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.OnLostFocus(System.Windows.RoutedEventArgs)">
+            <summary>
+            Called before the <see cref="E:System.Windows.UIElement.LostFocus"/> event occurs.
+            </summary>
+            <param name="e">The data for the event.</param>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.OnGotFocus(System.Windows.RoutedEventArgs)">
+            <summary>
+            Called before the <see cref="E:System.Windows.UIElement.GotFocus"/> event occurs.
+            </summary>
+            <param name="e">The data for the event.</param>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.OnMouseEnter(System.Windows.Input.MouseEventArgs)">
+            <inheritdoc />
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.OnMouseLeave(System.Windows.Input.MouseEventArgs)">
+            <inheritdoc />
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.OnMouseLeftButtonDown(System.Windows.Input.MouseButtonEventArgs)">
+            <inheritdoc />
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.OnKeyDown(System.Windows.Input.KeyEventArgs)">
+            <summary>
+            Called before the <see cref="E:System.Windows.UIElement.KeyDown"/> event occurs.
+            </summary>
+            <param name="e">The data for the event.</param>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.CurrentExtentImpl">
+            <summary>
+            Gets or sets the <see cref="T:Esri.ArcGISRuntime.TimeExtent" /> associated with the visual thumbs(s) displayed on the TimeSlider.
+            </summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.CurrentExtentProperty">
+            <summary>
+            Identifies the <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.CurrentExtent"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.FullExtentImpl">
+            <summary>
+            Gets or sets the <see cref="T:Esri.ArcGISRuntime.TimeExtent" /> that specifies the overall start and end time of the time slider instance
+            </summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.FullExtentProperty">
+            <summary>
+            Identifies the <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.FullExtent"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.TimeStepIntervalImpl">
+            <summary>
+            Gets or sets the time step intervals for the time slider.  The slider thumbs will snap to and tick marks will be shown at this interval.
+            </summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.TimeStepIntervalProperty">
+            <summary>
+            Identifies the <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.TimeStepInterval"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.TimeStepsImpl">
+            <summary>
+            Gets or sets gets the time steps that can be used to set the slider instance's current extent
+            </summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.TimeStepsProperty">
+            <summary>
+            Identifies the <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.TimeSteps"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.PlaybackIntervalImpl">
+            <summary>
+            Gets or sets the interval at which the time slider's current extent will move to the next or previous time step
+            </summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.PlaybackIntervalProperty">
+            <summary>
+            Identifies the <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.PlaybackInterval"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.PlaybackDirectionImpl">
+            <summary>
+            Gets or sets whether the current extent will move to the next or the previous time step during playback
+            </summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.PlaybackDirectionProperty">
+            <summary>
+            Identifies the <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.PlaybackDirection"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.PlaybackLoopModeImpl">
+            <summary>
+            Gets or sets the behavior when the current extent reaches the end of the slider during playback
+            </summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.LoopModeProperty">
+            <summary>
+            Identifies the <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.PlaybackLoopMode"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.IsStartTimePinnedImpl">
+            <summary>
+            Gets or sets a value indicating whether the start time of the <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.CurrentExtent"/> is locked into place
+            </summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.IsStartTimePinnedProperty">
+            <summary>
+            Identifies the <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.IsStartTimePinned"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.IsEndTimePinnedImpl">
+            <summary>
+            Gets or sets a value indicating whether the end time of the <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.CurrentExtent"/> is locked into place
+            </summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.IsEndTimePinnedProperty">
+            <summary>
+            Identifies the <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.IsEndTimePinned"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.IsPlayingImpl">
+            <summary>
+            Gets or sets a value indicating whether the time slider is animating playback
+            </summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.IsPlayingProperty">
+            <summary>
+            Identifies the <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.IsPlaying"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.FullExtentLabelFormatImpl">
+            <summary>
+            Gets or sets the string format to use for displaying the start and end labels for the <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.FullExtent"/>
+            </summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.FullExtentLabelFormatProperty">
+            <summary>
+            Identifies the <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.FullExtentLabelFormat"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.CurrentExtentLabelFormatImpl">
+            <summary>
+            Gets or sets the string format to use for displaying the start and end labels for the <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.CurrentExtent"/>
+            </summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.CurrentExtentLabelFormatProperty">
+            <summary>
+            Identifies the <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.CurrentExtentLabelFormat"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.TimeStepIntervalLabelFormatImpl">
+            <summary>
+            Gets or sets the string format to use for displaying the labels for the tick marks representing each time step interval
+            </summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.TimeStepIntervalLabelFormatProperty">
+            <summary>
+            Identifies the <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.TimeStepIntervalLabelFormat"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.LabelModeImpl">
+            <summary>
+            Gets or sets the mode to use for labels along the time slider
+            </summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.LabelModeProperty">
+            <summary>
+            Identifies the <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.LabelMode"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.ThumbStrokeImpl">
+            <summary>
+            Gets or sets the border color of the thumbs
+            </summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.ThumbStrokeProperty">
+            <summary>
+            Identifies the <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.ThumbStroke"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.ThumbFillImpl">
+            <summary>
+            Gets or sets the fill color of the thumbs
+            </summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.ThumbFillProperty">
+            <summary>
+            Identifies the <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.ThumbFill"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.CurrentExtentFillImpl">
+            <summary>
+            Gets or sets the fill color of the area on the slider track that indicates the <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.CurrentExtent"/>
+            </summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.CurrentExtentFillProperty">
+            <summary>
+            Identifies the <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.CurrentExtentFill"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.FullExtentFillImpl">
+            <summary>
+            Gets or sets the fill color of the area on the slider track that indicates the <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.FullExtent"/>
+            </summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.FullExtentFillProperty">
+            <summary>
+            Identifies the <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.FullExtentFill"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.FullExtentStrokeImpl">
+            <summary>
+            Gets or sets the border color of the area on the slider track that indicates the <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.FullExtent"/>
+            </summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.FullExtentStrokeProperty">
+            <summary>
+            Identifies the <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.FullExtentStroke"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.TimeStepIntervalTickFillImpl">
+            <summary>
+            Gets or sets the color of the slider's tickmarks
+            </summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.TimeStepIntervalTickFillProperty">
+            <summary>
+            Identifies the <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.TimeStepIntervalTickFill"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.PlaybackButtonsFillImpl">
+            <summary>
+            Gets or sets the fill color of the playback buttons
+            </summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.PlaybackButtonsFillProperty">
+            <summary>
+            Identifies the <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.PlaybackButtonsFill"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.PlaybackButtonsStrokeImpl">
+            <summary>
+            Gets or sets the border color of the playback buttons
+            </summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.PlaybackButtonsStrokeProperty">
+            <summary>
+            Identifies the <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.PlaybackButtonsStroke"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.FullExtentLabelColorImpl">
+            <summary>
+            Gets or sets the color of the full extent labels
+            </summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.FullExtentLabelColorProperty">
+            <summary>
+            Identifies the <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.FullExtentLabelColor"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.CurrentExtentLabelColorImpl">
+            <summary>
+            Gets or sets the color of the current extent labels
+            </summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.CurrentExtentLabelColorProperty">
+            <summary>
+            Identifies the <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.CurrentExtentLabelColor"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.TimeStepIntervalLabelColorImpl">
+            <summary>
+            Gets or sets the color of the time step interval labels
+            </summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.TimeStepIntervalLabelColorProperty">
+            <summary>
+            Identifies the <see cref="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.TimeStepIntervalLabelColor"/> dependency property.
+            </summary>
+        </member>
+        <member name="T:Esri.ArcGISRuntime.Toolkit.UI.Controls.LayerContentContextMenuEventArgs">
+            <summary>
+            Event argument fired by the <see cref="T:Esri.ArcGISRuntime.Toolkit.UI.Controls.LayerList"/> when right-clicking an item
+            </summary>
+            <seealso cref="E:Esri.ArcGISRuntime.Toolkit.UI.Controls.LayerList.LayerContentContextMenuOpening"/>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.LayerContentContextMenuEventArgs.LayerContent">
+            <summary>
+            Gets the layer content instance that was clicked
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.LayerContentContextMenuEventArgs.Menu">
+            <summary>
+            Gets a reference to the context menu that will be displayed
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.Controls.LayerContentContextMenuEventArgs.MenuItems">
+            <summary>
+            Gets a set of menu items to display. If empty, no context menu will be displayed
+            </summary>
+        </member>
+        <member name="T:Esri.ArcGISRuntime.Toolkit.UI.LoopMode">
+            <summary>
+            Specifies the loop behavior of temporal playback
+            </summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Toolkit.UI.LoopMode.None">
+            <summary>
+            Specifies that playback should not loop when the bounds of the temporal extent are reached
+            </summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Toolkit.UI.LoopMode.Repeat">
+            <summary>
+            Specifies that temporal playback should repeat when the bounds of the temporal extent are reached
+            </summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Toolkit.UI.LoopMode.Reverse">
+            <summary>
+            Specifies that temporal playback should reverse direction when the bounds of the temporal extent are reached
+            </summary>
+        </member>
+        <member name="T:Esri.ArcGISRuntime.Toolkit.UI.PlaybackDirection">
+            <summary>
+            Specifies the direction of temporal playback
+            </summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Toolkit.UI.PlaybackDirection.Forward">
+            <summary>
+            Specifies that playback advances forward in time
+            </summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Toolkit.UI.PlaybackDirection.Backward">
+            <summary>
+            Specifies that playback moves backward in time
+            </summary>
+        </member>
+        <member name="T:Esri.ArcGISRuntime.Toolkit.UI.TimeExtentChangedEventArgs">
+            <summary>
+            Event arguments used when raising the <see cref="E:Esri.ArcGISRuntime.Toolkit.UI.Controls.TimeSlider.CurrentExtentChanged"/> event.
+            </summary>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.UI.TimeExtentChangedEventArgs.#ctor(Esri.ArcGISRuntime.TimeExtent,Esri.ArcGISRuntime.TimeExtent)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Esri.ArcGISRuntime.Toolkit.UI.TimeExtentChangedEventArgs"/> class.
+            </summary>
+            <param name="newExtent">The new <see cref="T:Esri.ArcGISRuntime.TimeExtent"/> value.</param>
+            <param name="oldExtent">The old <see cref="T:Esri.ArcGISRuntime.TimeExtent"/> value.</param>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.TimeExtentChangedEventArgs.NewExtent">
+            <summary>
+            Gets the new <see cref="T:Esri.ArcGISRuntime.TimeExtent"/> value.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.UI.TimeExtentChangedEventArgs.OldExtent">
+            <summary>
+            Gets the old <see cref="T:Esri.ArcGISRuntime.TimeExtent"/> value.
+            </summary>
+        </member>
+        <member name="T:Esri.ArcGISRuntime.Toolkit.UI.TimeSliderLabelMode">
+            <summary>
+            Represents the display mode for time slider labels
+            </summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Toolkit.UI.TimeSliderLabelMode.None">
+            <summary>
+            Display no labels along the time slider
+            </summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Toolkit.UI.TimeSliderLabelMode.CurrentExtent">
+            <summary>
+            Display labels for the time slider's current extent (i.e. on the slider's thumbs)
+            </summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Toolkit.UI.TimeSliderLabelMode.TimeStepInterval">
+            <summary>
+            Display labels for the time slider's time step intervals (i.e. on the slider's tick marks)
+            </summary>
+        </member>
+        <member name="T:Esri.ArcGISRuntime.Toolkit.Primitives.Tickbar">
+            <summary>
+            *FOR INTERNAL USE ONLY* Tickbar control used for placing a specified amount of tick marks evenly spread out.
+            </summary>
+            <exclude/>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.Primitives.Tickbar.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Esri.ArcGISRuntime.Toolkit.Primitives.Tickbar"/> class.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.Primitives.Tickbar.TickmarkPositions">
+            <summary>
+            Gets or sets the tick mark positions.
+            </summary>
+            <value>The tick mark positions.</value>
+            <remarks>The tick mark position values should be between 0 and 1.  They represent proportional positions along the tick bar.</remarks>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.Primitives.Tickbar.TickmarkDataSources">
+            <summary>
+            Gets or sets the data sources for the tick marks.  These can be bound to in the tick bar's tick templates.
+            </summary>
+            <value>The data source objects</value>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.Primitives.Tickbar.TickFill">
+            <summary>
+            Gets or sets the fill color for each tick mark
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.Primitives.Tickbar.TickLabelColor">
+            <summary>
+            Gets or sets the fill color for each tick mark
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.Primitives.Tickbar.ShowTickLabels">
+            <summary>
+            Gets or sets a value indicating whether gets or sets whether to display labels on the ticks
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.Primitives.Tickbar.TickLabelFormat">
+            <summary>
+            Gets or sets the string format to use for displaying the tick labels
+            </summary>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.Primitives.Tickbar.ArrangeOverride(System.Windows.Size)">
+            <inheritdoc />
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.Primitives.Tickbar.MeasureOverride(System.Windows.Size)">
+            <inheritdoc />
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.Primitives.Tickbar.TickmarkPositionsImpl">
+            <summary>
+            Gets or sets the tick mark positions.
+            </summary>
+            <value>The tick mark positions.</value>
+            <remarks>The tick mark position values should be between 0 and 1.  They represent proportional positions along the tick bar.</remarks>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Toolkit.Primitives.Tickbar.TickmarkPositionsProperty">
+            <summary>
+            Identifies the <see cref="P:Esri.ArcGISRuntime.Toolkit.Primitives.Tickbar.TickmarkPositions"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.Primitives.Tickbar.TickmarkDataSourcesImpl">
+            <summary>
+            Gets or sets the data sources for the tick marks.  These can be bound to in the tick bar's tick templates.
+            </summary>
+            <value>The data source objects</value>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Toolkit.Primitives.Tickbar.TickmarkDataSourcesProperty">
+            <summary>
+            Identifies the <see cref="P:Esri.ArcGISRuntime.Toolkit.Primitives.Tickbar.TickmarkDataSources"/> dependency property.
+            </summary>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.Primitives.Tickbar.AddTickmark(System.Double,System.Object)">
+            <summary>
+            Adds a tick to the bar's visual tree
+            </summary>
+            <param name="position">The position to place the tick at along the tick bar</param>
+            <param name="dataSource">The data to pass to the tick's template</param>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.Primitives.Tickbar.MinorTickmarkTemplate">
+            <summary>
+            Gets or sets the item template for each minor tick mark
+            </summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Toolkit.Primitives.Tickbar.MinorTickmarkTemplateProperty">
+            <summary>
+            Identifies the <see cref="P:Esri.ArcGISRuntime.Toolkit.Primitives.Tickbar.MinorTickmarkTemplate"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.Primitives.Tickbar.MajorTickmarkTemplate">
+            <summary>
+            Gets or sets the item template for each major tick mark
+            </summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Toolkit.Primitives.Tickbar.MajorTickmarkTemplateProperty">
+            <summary>
+            Identifies the <see cref="P:Esri.ArcGISRuntime.Toolkit.Primitives.Tickbar.MajorTickmarkTemplate"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.Primitives.Tickbar.TickFillImpl">
+            <summary>
+            Gets or sets the fill color for each tick mark
+            </summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Toolkit.Primitives.Tickbar.TickFillProperty">
+            <summary>
+            Identifies the <see cref="P:Esri.ArcGISRuntime.Toolkit.Primitives.Tickbar.TickFill"/> dependency property
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.Primitives.Tickbar.TickLabelColorImpl">
+            <summary>
+            Gets or sets the fill color for each tick mark
+            </summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Toolkit.Primitives.Tickbar.TickLabelColorProperty">
+            <summary>
+            Identifies the <see cref="P:Esri.ArcGISRuntime.Toolkit.Primitives.Tickbar.TickLabelColor"/> dependency property
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.Primitives.Tickbar.ShowTickLabelsImpl">
+            <summary>
+            Gets or sets a value indicating whether gets or sets whether to display labels on the ticks
+            </summary>
+            <value>The item template.</value>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Toolkit.Primitives.Tickbar.ShowTickLabelsProperty">
+            <summary>
+            Identifies the <see cref="P:Esri.ArcGISRuntime.Toolkit.Primitives.Tickbar.ShowTickLabels"/> dependency property
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Toolkit.Primitives.Tickbar.TickLabelFormatImpl">
+            <summary>
+            Gets or sets the string format to use for displaying the tick labels
+            </summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Toolkit.Primitives.Tickbar.TickLabelFormatProperty">
+            <summary>
+            Identifies the <see cref="P:Esri.ArcGISRuntime.Toolkit.Primitives.Tickbar.TickLabelFormat"/> dependency property.
+            </summary>
+        </member>
+        <member name="T:Esri.ArcGISRuntime.Toolkit.TimeExtentConverter">
+            <summary>
+            *FOR INTERNAL USE ONLY* Provides a way of converting <see cref="T:Esri.ArcGISRuntime.TimeExtent"/> to and from a string representation.
+            </summary>
+            <exclude/>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.TimeExtentConverter.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Esri.ArcGISRuntime.Toolkit.TimeExtentConverter"/> class.
+            </summary>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.TimeExtentConverter.CanConvertFrom(System.ComponentModel.ITypeDescriptorContext,System.Type)">
+            <inheritdoc />
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.TimeExtentConverter.CanConvertTo(System.ComponentModel.ITypeDescriptorContext,System.Type)">
+            <inheritdoc />
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.TimeExtentConverter.ConvertFrom(System.ComponentModel.ITypeDescriptorContext,System.Globalization.CultureInfo,System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Toolkit.TimeExtentConverter.ConvertTo(System.ComponentModel.ITypeDescriptorContext,System.Globalization.CultureInfo,System.Object,System.Type)">
+            <inheritdoc />
+        </member>
+        <member name="T:XamlGeneratedNamespace.GeneratedInternalTypeHelper">
+            <summary>
+            GeneratedInternalTypeHelper
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
+            <summary>
+            CreateInstance
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            GetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            SetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
+            <summary>
+            CreateDelegate
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
+            <summary>
+            AddEventHandler
+            </summary>
+        </member>
+    </members>
+</doc>
